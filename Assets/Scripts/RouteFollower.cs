@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class RouteFollower : MonoBehaviour
 {
     [SerializeField] private Transform _traveler;
     [SerializeField] private float _speed = 4f;
 
-    private Node[] _routeNodes;
+    private Transform[] _routeNodes;
     private int _nodesCount = 0;
 
     private Vector3 _targetRoutePosition = Vector3.zero;
@@ -16,7 +14,7 @@ public class RouteFollower : MonoBehaviour
 
     private void Start()
     {
-        _routeNodes = GetComponentsInChildren<Node>();
+        _routeNodes = GetComponentsInChildren<Transform>();
         _nodesCount = _routeNodes != null ? _routeNodes.Length : 0;
 
         if (_nodesCount > 0)
@@ -30,7 +28,7 @@ public class RouteFollower : MonoBehaviour
         else
             DefineTargetNodeReturn();
 
-        _targetRoutePosition = _routeNodes[_currentNodeIndex].transform.position;
+        _targetRoutePosition = _routeNodes[_currentNodeIndex].position;
     }
 
     private void DefineTargetNodeDirect()
@@ -61,7 +59,7 @@ public class RouteFollower : MonoBehaviour
 
     void Update()
     {
-        if (_nodesCount == 0)
+        if (_nodesCount == 0 || _traveler == null)
             return;
 
         _traveler.position = Vector3.MoveTowards(_traveler.position, _targetRoutePosition, _speed * Time.deltaTime);
