@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Player : MonoBehaviour
 {
@@ -9,11 +7,6 @@ public class Player : MonoBehaviour
 
     private Vector3 _direction;
 
-    private void Start()
-    {
-        //_direction = new Vector3(0, _rb.velocity.y, 0);
-    }
-
     private void FixedUpdate()
     {
         _direction.x = Input.GetAxis("Horizontal") * _speed;
@@ -21,7 +14,5 @@ public class Player : MonoBehaviour
         _direction.y = _rb.velocity.y;
 
         _rb.velocity = _direction;
-
-        Debug.Log("Velocity Y: " + _rb.velocity.y);
     }
 }

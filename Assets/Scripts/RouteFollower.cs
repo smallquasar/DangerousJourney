@@ -57,7 +57,7 @@ public class RouteFollower : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (_nodesCount == 0 || _traveler == null)
             return;
