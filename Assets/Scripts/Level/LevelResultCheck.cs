@@ -2,6 +2,8 @@
 
 public class LevelResultCheck : MonoBehaviour
 {
+    [SerializeField] private LevelResultUI _levelResultUI;
+
     private string _enemyTag;
     private string _endLevelTag;
 
@@ -15,7 +17,7 @@ public class LevelResultCheck : MonoBehaviour
     {
         if (otherCollider.gameObject.CompareTag(_enemyTag))
         {
-            LevelManager.LvlManager.ReloadLevel();
+            _levelResultUI.GameOverShow();
         }
     }
 
