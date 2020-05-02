@@ -6,6 +6,7 @@ public class LevelManager : MonoBehaviour
     public static LevelManager LvlManager { get; private set; }
 
     public string EnemyTag { get; private set; }
+    public string EndLevelTag { get; private set; }
 
     private void Awake()
     {
@@ -20,9 +21,10 @@ public class LevelManager : MonoBehaviour
         }
 
         EnemyTag = "Enemy";
+        EndLevelTag = "EndLevel";
     }
 
-    public void ReloadScene()
+    public void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
@@ -31,7 +33,7 @@ public class LevelManager : MonoBehaviour
     {
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
 
-        if (SceneManager.sceneCount > nextSceneIndex)
+        if (SceneManager.sceneCountInBuildSettings > nextSceneIndex)
         {
             SceneManager.LoadScene(nextSceneIndex);
         }
