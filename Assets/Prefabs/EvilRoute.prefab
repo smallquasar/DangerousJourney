@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _traveler: {fileID: 0}
-  _speed: 4
+  _speed: 6

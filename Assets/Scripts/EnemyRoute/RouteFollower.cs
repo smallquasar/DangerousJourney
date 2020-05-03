@@ -3,7 +3,7 @@
 public class RouteFollower : MonoBehaviour
 {
     [SerializeField] private Transform _traveler;
-    [SerializeField] private float _speed = 4f;
+    [SerializeField] private float _speed = 6f;
 
     private Transform[] _routeNodes;
     private int _nodesCount = 0;
