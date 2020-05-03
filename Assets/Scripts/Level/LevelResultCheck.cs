@@ -15,6 +15,9 @@ public class LevelResultCheck : MonoBehaviour
 
     private void OnTriggerEnter(Collider otherCollider)
     {
+        if (_levelResultUI == null)
+            return;
+
         if (otherCollider.gameObject.CompareTag(_enemyTag))
         {
             _levelResultUI.GameOverShow();
@@ -23,6 +26,9 @@ public class LevelResultCheck : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        if (_levelResultUI == null)
+            return;
+
         if (collision.gameObject.CompareTag(_endLevelTag))
         {
             _levelResultUI.WinShow();
