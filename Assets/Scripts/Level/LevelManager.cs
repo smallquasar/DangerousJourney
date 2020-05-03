@@ -27,6 +27,9 @@ public class LevelManager : MonoBehaviour
     public void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        if (Time.timeScale == 0)
+            Time.timeScale = 1;
     }
 
     public void NextLevel()
@@ -36,6 +39,14 @@ public class LevelManager : MonoBehaviour
         if (SceneManager.sceneCountInBuildSettings > nextSceneIndex)
         {
             SceneManager.LoadScene(nextSceneIndex);
+
+            if (Time.timeScale == 0)
+                Time.timeScale = 1;
         }
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }

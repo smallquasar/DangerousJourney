@@ -25,7 +25,7 @@ public class LevelResultCheck : MonoBehaviour
     {
         if (collision.gameObject.CompareTag(_endLevelTag))
         {
-            LevelManager.LvlManager.NextLevel();
+            _levelResultUI.WinShow();
         }
     }
 }
