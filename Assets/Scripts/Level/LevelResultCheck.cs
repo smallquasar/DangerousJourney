@@ -9,8 +9,8 @@ public class LevelResultCheck : MonoBehaviour
 
     private void Start()
     {
-        _enemyTag = LevelManager.LvlManager.EnemyTag;
-        _endLevelTag = LevelManager.LvlManager.EndLevelTag;
+        _enemyTag = LevelManager.LvlManager?.EnemyTag;
+        _endLevelTag = LevelManager.LvlManager?.EndLevelTag;
     }
 
     private void OnTriggerEnter(Collider otherCollider)
