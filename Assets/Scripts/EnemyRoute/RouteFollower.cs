@@ -7,66 +7,46 @@ public class RouteFollower : MonoBehaviour
 
     private Transform[] _routeNodes;
     private int _nodesCount = 0;
+    private int _firstNodeIndex = 1;
+    private int _currentNodeIndex = 0;
 
     private Vector3 _targetRoutePosition = Vector3.zero;
-    private int _currentNodeIndex = -1;
-    private bool _isDirectRoute = true;
+
+    private INodeChooser _nodeChooser;
+
+    private void Awake()
+    {
+        _nodeChooser = GetComponent<INodeChooser>();
+    }
 
     private void Start()
     {
         _routeNodes = GetComponentsInChildren<Transform>();
         _nodesCount = _routeNodes != null ? _routeNodes.Length : 0;
 
-        if (_nodesCount > 0)
-            DefineTargetNode();
+        if (_nodesCount > 0 && _nodeChooser != null)
+        {
+            _nodeChooser.SetNodes(_firstNodeIndex, _nodesCount);
+            DefineNextNode();
+        }
     }
 
-    private void DefineTargetNode()
+    private void DefineNextNode()
     {
-        if (_isDirectRoute)
-            DefineTargetNodeDirect();
-        else
-            DefineTargetNodeReturn();
-
+        _currentNodeIndex = _nodeChooser.DefineNextNode(_currentNodeIndex);
         _targetRoutePosition = _routeNodes[_currentNodeIndex].position;
-    }
-
-    private void DefineTargetNodeDirect()
-    {
-        if (_currentNodeIndex < _nodesCount - 1)
-        {
-            _currentNodeIndex++;
-        }
-        else
-        {
-            _currentNodeIndex--;
-            _isDirectRoute = false;
-        }
-    }
-
-    private void DefineTargetNodeReturn()
-    {
-        if (_currentNodeIndex > 0)
-        {
-            _currentNodeIndex--;
-        }
-        else
-        {
-            _currentNodeIndex++;
-            _isDirectRoute = true;
-        }
     }
 
     private void Update()
     {
-        if (_nodesCount == 0 || _traveler == null)
+        if (_nodesCount == 0 || _traveler == null || _nodeChooser == null)
             return;
 
         _traveler.position = Vector3.MoveTowards(_traveler.position, _targetRoutePosition, _speed * Time.deltaTime);
 
         if (_traveler.position == _targetRoutePosition)
         {
-            DefineTargetNode();
+            DefineNextNode();
         }
     }
 }
