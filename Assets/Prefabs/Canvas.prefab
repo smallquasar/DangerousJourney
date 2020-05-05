@@ -216,6 +216,7 @@ GameObject:
   - component: {fileID: 4156445547632620720}
   - component: {fileID: 4156445547632620721}
   - component: {fileID: 4156445547632620725}
+  - component: {fileID: 3911578651997361507}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -319,6 +320,21 @@ MonoBehaviour:
   _levelResultPanel: {fileID: 4156445547299260957}
   _levelReloadButton: {fileID: 4156445549037252576}
   _nextLevelButton: {fileID: 4156445547908683787}
+--- !u!114 &3911578651997361507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4156445547632620734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6540842c516da884592f6c4f97c1a5b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _restartLevelButton: {fileID: 4156445549037252576}
+  _nextLevelButton: {fileID: 4156445547908683787}
+  _exitGameButton: {fileID: 4156445546927485974}
 --- !u!1 &4156445547815356201
 GameObject:
   m_ObjectHideFlags: 0
@@ -395,7 +411,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Exit
+  m_Text: Exit (X)
 --- !u!1 &4156445547908683785
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,7 +682,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next level
+  m_Text: Next level (B)
 --- !u!1 &4156445548656806902
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,7 +759,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Reload level
+  m_Text: Reload level (A)
 --- !u!1 &4156445548974184871
 GameObject:
   m_ObjectHideFlags: 0
