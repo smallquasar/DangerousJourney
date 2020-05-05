@@ -335,6 +335,7 @@ MonoBehaviour:
   _restartLevelButton: {fileID: 4156445549037252576}
   _nextLevelButton: {fileID: 4156445547908683787}
   _exitGameButton: {fileID: 4156445546927485974}
+  _levelResultPanel: {fileID: 4156445547299260957}
 --- !u!1 &4156445547815356201
 GameObject:
   m_ObjectHideFlags: 0

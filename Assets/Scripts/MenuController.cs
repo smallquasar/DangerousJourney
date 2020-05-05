@@ -7,17 +7,23 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Button _nextLevelButton;
     [SerializeField] private Button _exitGameButton;
 
+    [SerializeField] private GameObject _levelResultPanel;
+
     void Update()
     {
-        if (Input.GetButtonDown("RestartLevel"))
+        if (_levelResultPanel.activeSelf)
         {
-            _restartLevelButton.onClick.Invoke();
+            if (Input.GetButtonDown("RestartLevel"))
+            {
+                _restartLevelButton.onClick.Invoke();
+            }
+            else if (Input.GetButtonDown("NextLevel"))
+            {
+                _nextLevelButton.onClick.Invoke();
+            }
         }
-        else if (Input.GetButtonDown("NextLevel"))
-        {
-            _nextLevelButton.onClick.Invoke();
-        }
-        else if (Input.GetButtonDown("ExitGame"))
+
+        if (Input.GetButtonDown("ExitGame"))
         {
             _exitGameButton.onClick.Invoke();
         }
